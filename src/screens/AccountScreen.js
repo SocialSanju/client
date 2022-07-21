@@ -58,10 +58,10 @@ export default function AccountScreen(props) {
       </div>
       
       <div>
-        <label htmlFor="Group">Select Sub-Group</label>
+        <label htmlFor="Group">Select Account-Group</label>
         <select id='Sub_Group' onChange={(e) => setAccount_Group(e.target.value)}>
-          <option>ABC</option>
-          <option>XYZ</option>
+          <option>Debitor</option>
+          <option>Creditor</option>
         </select>
        
       </div>
