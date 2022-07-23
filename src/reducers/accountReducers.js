@@ -7,7 +7,7 @@ export const acgrouplistReducer = (state = { loading: true }, action) => {
       case ACCOUNT_GROUP_LIST_REQUEST:
         return { loading: true };
       case ACCOUNT_GROUP_LIST_SUCCESS:
-        return { loading: false, users: action.payload };
+        return { loading: false, listgroups: action.payload };
       case ACCOUNT_GROUP_LIST_FAIL:
         return { loading: false, error: action.payload };
       default:

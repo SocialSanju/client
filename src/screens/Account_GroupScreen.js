@@ -4,7 +4,7 @@ import { group_details } from '../actions/accountActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 
-export default function AccountScreen(props) {
+export default function AccountGroupScreen(props) {
   const [ac_group_title, setAc_group_title] = useState('');
   const [Sub_Group, setSub_Group] = useState('');
 
