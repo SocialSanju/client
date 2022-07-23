@@ -7,7 +7,7 @@ import MessageBox from '../components/MessageBox';
 export default function AccountScreen(props) {
   const [Name, setName] = useState('');
   const [Mobile_No, setMobile_No] = useState('');
-  const [Account_Group, setAccount_Group] = useState('');
+  const [Ac_Group, setAc_Group] = useState('');
 
   const redirect = props.location.search
     ? props.location.search.split('=')[1]
@@ -19,7 +19,7 @@ export default function AccountScreen(props) {
   const dispatch = useDispatch();
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(addAccount(Name, Mobile_No, Account_Group));
+    dispatch(addAccount(Name, Mobile_No));
   };
   useEffect(() => {
     if (accountAdd) {
@@ -55,15 +55,6 @@ export default function AccountScreen(props) {
           required
           onChange={(e) => setMobile_No(e.target.value)}
         ></input>
-      </div>
-      
-      <div>
-        <label htmlFor="Group">Select Account-Group</label>
-        <select id='Sub_Group' onChange={(e) => setAccount_Group(e.target.value)}>
-          <option>Debitor</option>
-          <option>Creditor</option>
-        </select>
-       
       </div>
      
       <div>

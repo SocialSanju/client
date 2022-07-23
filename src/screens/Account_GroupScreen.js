@@ -5,7 +5,7 @@ import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 
 export default function AccountScreen(props) {
-  const [Name, setName] = useState('');
+  const [ac_group_title, setAc_group_title] = useState('');
   const [Sub_Group, setSub_Group] = useState('');
 
   const redirect = props.location.search
@@ -18,7 +18,7 @@ export default function AccountScreen(props) {
   const dispatch = useDispatch();
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(group_details(Name, Sub_Group));
+    dispatch(group_details(ac_group_title, Sub_Group));
   };
   useEffect(() => {
     if (account_groupInfo) {
@@ -35,13 +35,13 @@ export default function AccountScreen(props) {
       {loading && <LoadingBox></LoadingBox>}
       {error && <MessageBox variant="danger">{error}</MessageBox>}
       <div>
-        <label htmlFor="name">Name</label>
+        <label htmlFor="ac_group_title">Account Group Title</label>
         <input
           type="text"
-          id="Name"
+          id="ac_group_title"
           placeholder="Enter name"
           required
-          onChange={(e) => setName(e.target.value)}
+          onChange={(e) => setAc_group_title(e.target.value)}
         ></input>
       </div>
       

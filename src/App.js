@@ -10,6 +10,7 @@ import UserEditScreen from './screens/UserEditScreen';
 import Account_GroupScreen from './screens/Account_GroupScreen';
 import AccountScreen from './screens/AccountScreen';
 import OrderScreen from './screens/OrderScreen';
+import DemoScreen from './screens/demoScreen';
 
 function App() {
  
@@ -29,6 +30,7 @@ function App() {
                 <>
                 <Route path="/account_group" component={Account_GroupScreen}></Route>
                 <Route path="/account" component={AccountScreen}></Route>
+                <Route path="/demo" component={DemoScreen}></Route>
                 <Route path="/order" component={OrderScreen}></Route>
                 <ul>
                   <li>

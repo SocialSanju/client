@@ -1,6 +1,6 @@
 import { createStore, compose, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
-import { addAccountReducer, account_groupReducer } from './reducers/accountReducers';
+import { addAccountReducer, account_groupReducer, acgrouplistReducer } from './reducers/accountReducers';
 import { userDeleteReducer, userDetailsReducer, userListReducer, userSigninReducer, userUpdateProfileReducer, userUpdateReducer } from './reducers/userReducers';
 import { userRegisterReducer } from './reducers/userReducers';
 
@@ -21,7 +21,8 @@ const reducer = combineReducers({
     userDelete: userDeleteReducer,
     userUpdate: userUpdateReducer,
     account_group: account_groupReducer,
-    addAct: addAccountReducer
+    addAct: addAccountReducer,
+    acgrouplist : acgrouplistReducer
 });
 const composeEnhancer = window._REDUX_DEVTOOLS_EXTENSION_COMPOSE_ || compose;
 const store = createStore(

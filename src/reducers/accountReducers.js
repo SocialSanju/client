@@ -1,4 +1,19 @@
-import { ACCOUNT_GROUP_FAIL, ACCOUNT_GROUP_REQUEST, ACCOUNT_GROUP_SUCCESS, ADD_ACCOUNT_FAIL, ADD_ACCOUNT_REQUEST, ADD_ACCOUNT_SUCCESS } from "../constants/accountConstants";
+import { ACCOUNT_GROUP_FAIL, ACCOUNT_GROUP_REQUEST, ACCOUNT_GROUP_SUCCESS, 
+    ADD_ACCOUNT_FAIL, ADD_ACCOUNT_REQUEST, ADD_ACCOUNT_SUCCESS,
+    ACCOUNT_GROUP_LIST_REQUEST, ACCOUNT_GROUP_LIST_FAIL, ACCOUNT_GROUP_LIST_SUCCESS } from "../constants/accountConstants";
+
+export const acgrouplistReducer = (state = { loading: true }, action) => {
+    switch (action.type) {
+      case ACCOUNT_GROUP_LIST_REQUEST:
+        return { loading: true };
+      case ACCOUNT_GROUP_LIST_SUCCESS:
+        return { loading: false, users: action.payload };
+      case ACCOUNT_GROUP_LIST_FAIL:
+        return { loading: false, error: action.payload };
+      default:
+        return state;
+    }
+  };
 
 export const account_groupReducer = (state = {}, action) => {
     switch(action.type)

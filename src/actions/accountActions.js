@@ -1,13 +1,27 @@
 import Axios from 'axios';
 import {
   ACCOUNT_GROUP_REQUEST, ACCOUNT_GROUP_SUCCESS, ACCOUNT_GROUP_FAIL,
-  ADD_ACCOUNT_FAIL, ADD_ACCOUNT_REQUEST, ADD_ACCOUNT_SUCCESS
+  ADD_ACCOUNT_FAIL, ADD_ACCOUNT_REQUEST, ADD_ACCOUNT_SUCCESS,
+  ACCOUNT_GROUP_LIST_FAIL, ACCOUNT_GROUP_LIST_REQUEST, ACCOUNT_GROUP_LIST_SUCCESS
  } from "../constants/accountConstants";
 
-export const group_details = (Name, Sub_Group) => async (dispatch) => {
-  dispatch({ type: ACCOUNT_GROUP_REQUEST, payload: { Name, Sub_Group } });
+ export const grouplist = ({}) => async (dispatch) => {
+  dispatch({ type: ACCOUNT_GROUP_LIST_REQUEST });
   try {
-    const { data } = await Axios.post('/api/accountGroup/', { Name, Sub_Group });
+    const { data } = await Axios.get(
+      `/api/accountGroup/list`
+    );
+    dispatch({ type: ACCOUNT_GROUP_LIST_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({ type: ACCOUNT_GROUP_LIST_FAIL, payload: error.message });
+  }
+};
+
+
+export const group_details = (ac_group_title, Sub_Group) => async (dispatch) => {
+  dispatch({ type: ACCOUNT_GROUP_REQUEST, payload: { ac_group_title, Sub_Group } });
+  try {
+    const { data } = await Axios.post('/api/accountGroup/', { ac_group_title, Sub_Group });
     dispatch({ type: ACCOUNT_GROUP_SUCCESS, payload: data });
     localStorage.setItem('account_groupInfo', JSON.stringify(data));
   } catch (error) {
@@ -21,10 +35,10 @@ export const group_details = (Name, Sub_Group) => async (dispatch) => {
   }
 };
 
-export const addAccount = (Name, Mobile_No, Account_Group) => async (dispatch) => {
-  dispatch({ type: ADD_ACCOUNT_REQUEST, payload: { Name, Mobile_No, Account_Group } });
+export const addAccount = (Name, Mobile_No) => async (dispatch) => {
+  dispatch({ type: ADD_ACCOUNT_REQUEST, payload: { Name, Mobile_No } });
   try {
-    const { data } = await Axios.post('/api/account/', { Name, Mobile_No, Account_Group });
+    const { data } = await Axios.post('/api/account/', { Name, Mobile_No });
     dispatch({ type: ADD_ACCOUNT_SUCCESS, payload: data });
     localStorage.setItem('accountAdd', JSON.stringify(data));
   } catch (error) {
