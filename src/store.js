@@ -3,6 +3,8 @@ import thunk from 'redux-thunk';
 import { addAccountReducer, account_groupReducer, acgrouplistReducer } from './reducers/accountReducers';
 import { userDeleteReducer, userDetailsReducer, userListReducer, userSigninReducer, userUpdateProfileReducer, userUpdateReducer } from './reducers/userReducers';
 import { userRegisterReducer } from './reducers/userReducers';
+import { addServiceReducer, serviceGrouplistReducer, serviceGroupReducer } from './reducers/serviceReducers';
+import { addProductReducer, productGrouplistReducer, productGroupReducer } from './reducers/productReducers';
 
 
 const initialState = {
@@ -22,7 +24,13 @@ const reducer = combineReducers({
     userUpdate: userUpdateReducer,
     account_group: account_groupReducer,
     addAct: addAccountReducer,
-    acgrouplist : acgrouplistReducer
+    acgrouplist : acgrouplistReducer,
+    addS: addServiceReducer,
+    serviceGroup: serviceGroupReducer,
+    serviceGrouplist: serviceGrouplistReducer,
+    productGroup: productGroupReducer,
+    addProd: addProductReducer,
+    productGrouplist: productGrouplistReducer
 });
 const composeEnhancer = window._REDUX_DEVTOOLS_EXTENSION_COMPOSE_ || compose;
 const store = createStore(

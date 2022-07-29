@@ -7,9 +7,13 @@ import RegisterScreen from './screens/RegisterScreen';
 import { signout } from './actions/userActions';
 import UserListScreen from './screens/UserListScreen';
 import UserEditScreen from './screens/UserEditScreen';
-import Account_GroupScreen from './screens/Account_GroupScreen';
+import AccountGroupScreen from './screens/Account_GroupScreen';
 import AccountScreen from './screens/AccountScreen';
 import OrderScreen from './screens/OrderScreen';
+import ServiceScreen from './screens/ServiceScreen';
+import ServiceGroupScren from './screens/service_GroupScren';
+import ProductScreen from './screens/ProductScreen';
+import ProductGroupScreen from './screens/ProductGroupScreen';
 
 function App() {
  
@@ -27,8 +31,12 @@ function App() {
             {
               userInfo ? (
                 <>
-                <Route path="/account_group" component={Account_GroupScreen}></Route>
+                <Route path="/account_group" component={AccountGroupScreen}></Route>
                 <Route path="/account" component={AccountScreen}></Route>
+                <Route path="/services" component={ServiceScreen}></Route>
+                <Route path="/serviceGroup" component={ServiceGroupScren}></Route>
+                <Route path="/productGroup" component={ProductGroupScreen}></Route>
+                <Route path="/product" component={ProductScreen}></Route>
                 <Route path="/order" component={OrderScreen}></Route>
                 <ul>
                   <li>
