@@ -35,10 +35,10 @@ export const productDetails = (product_group_title, Sub_Group) => async (dispatc
   }
 };
 
-export const addProduct = (Name, Mobile_No, ProductGroup) => async (dispatch) => {
-  dispatch({ type: ADD_PRODUCT_REQUEST, payload: { Name, Mobile_No, ProductGroup } });
+export const addProduct = (Name, ProductGroup) => async (dispatch) => {
+  dispatch({ type: ADD_PRODUCT_REQUEST, payload: { Name, ProductGroup } });
   try {
-    const { data } = await Axios.post('/api/product/add', { Name, Mobile_No, ProductGroup });
+    const { data } = await Axios.post('/api/product/add', { Name, ProductGroup });
     dispatch({ type: ADD_PRODUCT_SUCCESS, payload: data });
     localStorage.setItem('productAdd', JSON.stringify(data));
   } catch (error) {

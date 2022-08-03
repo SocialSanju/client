@@ -4,9 +4,6 @@ import { Link } from 'react-router-dom';
 export default function HomeScreen() {
   return (
     <div className='container'>
-      <Link to='/enquiry'><h2 style={{ fontSize:'20px'}}>Enquiry</h2></Link>     
-      <Link to='/order'><h2 style={{ fontSize:'20px'}}>Order</h2></Link>
-      <Link to='/demo'><h2 style={{ fontSize:'20px'}}>Demo</h2></Link>
       <Link to='/account'><h2 style={{ fontSize:'20px'}}>Account</h2></Link>
       <Link to='/account_group'><h2 style={{ fontSize:'20px'}}>Account_Group</h2></Link>
       <Link to='/product'><h2 style={{ fontSize:'20px'}}>Product</h2></Link>

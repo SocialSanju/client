@@ -7,8 +7,6 @@ import axios from 'axios';
 
 export default function ServiceScreen(props) {
   const [title, setTitle] = useState('');
-  const [sort_order, setSort_Order] = useState('');
-  const [status, setStatus] = useState('');
   const [service_Group, setService_Group] = useState('');
   const [serviceGroup, setServiceGroup] = useState([]);
 
@@ -28,7 +26,7 @@ export default function ServiceScreen(props) {
   const dispatch = useDispatch();
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(addService(title, sort_order, status, service_Group));
+    dispatch(addService(title, service_Group));
   };
   useEffect(() => {
     if (serviceAdd) {
@@ -53,17 +51,6 @@ export default function ServiceScreen(props) {
             onChange={(e) => setTitle(e.target.value)}
           ></input>
         </div>
-       
-        <div>
-          <label htmlFor="sort_order">Sort Order</label>
-          <input
-            type="text"
-            id="sort_order"
-            placeholder="Enter Order"
-            required
-            onChange={(e) => setSort_Order(e.target.value)}
-          ></input>
-        </div>
 
         <div>
       <label>Select Service Group</label>
@@ -75,15 +62,6 @@ export default function ServiceScreen(props) {
                                     }
                                 </select>
       </div>
-
-        <div>
-          <label htmlFor="status">Status</label>
-          <select name="Status" id="Status" onChange={(e) => setStatus(e.target.value)}>
-                        <option value="1">1</option>
-                        <option value="0">0</option>
-                    </select>
-        </div>
-       
         <div>
           <label />
           <button className="primary" type="submit">

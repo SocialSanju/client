@@ -7,7 +7,6 @@ import axios from 'axios';
 
 export default function ProductScreen(props) {
   const [name, setName] = useState('');
-  const [mobileno, setMobile_No] = useState('');
   const [Product_Group, setProduct_Group] = useState('');
   const [productGroup, setProductGroup] = useState([]);
 
@@ -31,7 +30,7 @@ export default function ProductScreen(props) {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(addProduct(name, mobileno, Product_Group));
+    dispatch(addProduct(name, Product_Group));
   };
   useEffect(() => {
     if (productAdd) {
@@ -57,12 +56,6 @@ export default function ProductScreen(props) {
           onChange={(e) => setName(e.target.value)}
         ></input>
       </div>
-      
-      <div>
-        <label htmlFor="mobileno">Mobile No</label>
-        <input type="text" id='Mobile_No' placeholder="Enter mobile no" required onChange={(e) => setMobile_No(e.target.value)} />      
-      </div>
-
  
       <div>
       <label>Select Product Group</label>

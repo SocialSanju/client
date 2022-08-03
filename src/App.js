@@ -9,7 +9,6 @@ import UserListScreen from './screens/UserListScreen';
 import UserEditScreen from './screens/UserEditScreen';
 import AccountGroupScreen from './screens/Account_GroupScreen';
 import AccountScreen from './screens/AccountScreen';
-import OrderScreen from './screens/OrderScreen';
 import ServiceScreen from './screens/ServiceScreen';
 import ServiceGroupScren from './screens/service_GroupScren';
 import ProductScreen from './screens/ProductScreen';
@@ -37,7 +36,6 @@ function App() {
                 <Route path="/serviceGroup" component={ServiceGroupScren}></Route>
                 <Route path="/productGroup" component={ProductGroupScreen}></Route>
                 <Route path="/product" component={ProductScreen}></Route>
-                <Route path="/order" component={OrderScreen}></Route>
                 <ul>
                   <li>
                   <Link to="#signout" onClick={signoutHandler}>
