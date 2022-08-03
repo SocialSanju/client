@@ -5,6 +5,7 @@ import { userDeleteReducer, userDetailsReducer, userListReducer, userSigninReduc
 import { userRegisterReducer } from './reducers/userReducers';
 import { addServiceReducer, serviceGrouplistReducer, serviceGroupReducer } from './reducers/serviceReducers';
 import { addProductReducer, productGrouplistReducer, productGroupReducer } from './reducers/productReducers';
+import { addEnquiryReducer, enquirylistReducer } from './reducers/enquiryReducers';
 
 
 const initialState = {
@@ -30,7 +31,9 @@ const reducer = combineReducers({
     serviceGrouplist: serviceGrouplistReducer,
     productGroup: productGroupReducer,
     addProd: addProductReducer,
-    productGrouplist: productGrouplistReducer
+    productGrouplist: productGrouplistReducer,
+    enqlist: enquirylistReducer,
+    addDetails: addEnquiryReducer
 });
 const composeEnhancer = window._REDUX_DEVTOOLS_EXTENSION_COMPOSE_ || compose;
 const store = createStore(

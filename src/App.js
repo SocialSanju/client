@@ -13,6 +13,7 @@ import ServiceScreen from './screens/ServiceScreen';
 import ServiceGroupScren from './screens/service_GroupScren';
 import ProductScreen from './screens/ProductScreen';
 import ProductGroupScreen from './screens/ProductGroupScreen';
+import EnquiryScreen from './screens/EnquiryScreen';
 
 function App() {
  
@@ -30,6 +31,7 @@ function App() {
             {
               userInfo ? (
                 <>
+                 <Route path="/enquiry" component={EnquiryScreen}></Route>
                 <Route path="/account_group" component={AccountGroupScreen}></Route>
                 <Route path="/account" component={AccountScreen}></Route>
                 <Route path="/services" component={ServiceScreen}></Route>
