@@ -2,7 +2,8 @@ import Axios from 'axios';
 import {
   ACCOUNT_GROUP_REQUEST, ACCOUNT_GROUP_SUCCESS, ACCOUNT_GROUP_FAIL,
   ADD_ACCOUNT_FAIL, ADD_ACCOUNT_REQUEST, ADD_ACCOUNT_SUCCESS,
-  ACCOUNT_GROUP_LIST_FAIL, ACCOUNT_GROUP_LIST_REQUEST, ACCOUNT_GROUP_LIST_SUCCESS
+  ACCOUNT_GROUP_LIST_FAIL, ACCOUNT_GROUP_LIST_REQUEST, ACCOUNT_GROUP_LIST_SUCCESS,
+  ACCOUNT_DETAILS_FAIL,ACCOUNT_DETAILS_REQUEST,ACCOUNT_DETAILS_SUCCESS
  } from "../constants/accountConstants";
 
  export const grouplist = ({}) => async (dispatch) => {
@@ -52,3 +53,20 @@ export const addAccount = (Name, Mobile_No, Ac_Group) => async (dispatch) => {
   }
 };
 
+
+export const detailsAccount = (accountId) => async (dispatch) =>{
+  dispatch({
+      type: ACCOUNT_DETAILS_REQUEST, payload: accountId });
+  try {
+      const { data } = await Axios.get(`/api/account/${accountId}`);
+      dispatch({ type: ACCOUNT_DETAILS_SUCCESS, payload: data });
+  } catch (error) {
+      dispatch({ 
+          type: ACCOUNT_DETAILS_FAIL, 
+          payload: 
+          error.response && error.response.data.message 
+          ? error.response.data.message 
+          : error.message,
+      });
+  }
+};

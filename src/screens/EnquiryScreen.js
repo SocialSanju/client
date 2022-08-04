@@ -50,7 +50,7 @@ export default function OrderScreen(props) {
         <label htmlFor="name">Name</label>
         <select name="Name" id="Name" onChange={(e) => setName(e.target.value)}>
                                     {acName && acName.map((obj) => {
-                                        return <option value={obj.AccountID}>{obj.Name}</option>
+                                        return <option value={obj.Name}>{obj.Name}</option>
                                     })
                                     }
                                 </select>

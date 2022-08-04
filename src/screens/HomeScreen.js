@@ -16,18 +16,19 @@ export default function HomeScreen(props) {
     <div className='container'>
        <Link to='/enquiry'><h2 style={{ fontSize:'20px'}}>Enquiry</h2></Link>
       <Link to='/account'><h2 style={{ fontSize:'20px'}}>Account</h2></Link>
-      <Link to='/account_group'><h2 style={{ fontSize:'20px'}}>Account_Group</h2></Link>
+      <Link to='/account_group'><h2 style={{ fontSize:'20px'}}>Account Group</h2></Link>
       <Link to='/product'><h2 style={{ fontSize:'20px'}}>Product</h2></Link>
-      <Link to='/productGroup'><h2 style={{ fontSize:'20px'}}>Product_Group</h2></Link>
+      <Link to='/productGroup'><h2 style={{ fontSize:'20px'}}>Product Group</h2></Link>
       <Link to='/services'><h2 style={{ fontSize:'20px'}}>Services</h2></Link>
-      <Link to='/serviceGroup'><h2 style={{ fontSize:'20px'}}>Service_Group</h2></Link>
+      <Link to='/serviceGroup'><h2 style={{ fontSize:'20px'}}>Service Group</h2></Link>
    
     <div className='table'>
       <table responsive>
       <thead>
                     <tr>
                         <th>ID</th> 
-                        <th>Date</th>                 
+                        <th>Date</th>    
+                        <th>EnqID</th>             
                         <th>Name</th>    
                                  
                     </tr>
@@ -39,12 +40,13 @@ export default function HomeScreen(props) {
                             <tr key={obj._id}>
                             <td>{obj._id}</td>
                             <td>{obj.createdAt}</td>
-                            <td>{obj.Name}</td>                        
+                            <td>{obj.Name}</td>   
+                            <td></td>                     
                             <td>
                             <button
                                 type="button"
                                 className="small"
-                                onClick={() =>props.history.push(`/updateOrder/${obj._id}/edit`)}
+                                onClick={() =>props.history.push(`/order/${obj._id}/edit`)}
                             >
                               Edit
                             </button>
