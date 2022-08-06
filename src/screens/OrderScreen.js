@@ -13,9 +13,10 @@ export default function OrderScreen(props) {
   const [paid, setPaid] = useState('');
   const [product, setProduct] = useState('');
   const [remark, setRemark] = useState('');
-  const [a, setA] = useState('');
-  const [b, setB] = useState('');
-  const [c, setC] = useState('');
+  const [state, setState] = useState('');
+  const [district, setDistrict] = useState('');
+  const [taluka, setTaluka] = useState('');
+  
 
 
   const [pname, setPName] = useState([]);
@@ -25,6 +26,16 @@ export default function OrderScreen(props) {
         setPName(res.data);
     })
 }, [])
+
+useEffect(async () => {
+  await axios.get('http://127.0.0.1:8080/api/state/all').then((res) => {
+      setPName(res.data);
+  })
+}, [])
+
+
+
+
 
   const redirect = props.location.search
     ? props.location.search.split('=')[1]
@@ -54,7 +65,7 @@ export default function OrderScreen(props) {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(addOrder(enquiry.Name, a, b, c, product, billing, paid, remark));
+    dispatch(addOrder(enquiry.Name,product, billing, paid, remark, state, district, taluka));
     props.history.push('/');
   };
 
@@ -87,37 +98,39 @@ export default function OrderScreen(props) {
         ></input>
       </div>
 
+
       <div>
-      <label>A</label>
-      <select name="A" id="A" onChange={(e) => setA(e.target.value)}>
+      <label>State</label>
+      <select name="State" id="State" onChange={(e) => setState(e.target.value)}>
                                 <option>---Select---</option>
-                                <option>A</option>
-                                <option>B</option>
-                                <option>C</option>
-                                <option>D</option>
+                                    {pname && pname.map((obj) => {
+                                        return <option value={obj.Name}>{obj.Name}</option>
+                                    })
+                                    }
                                 </select>
       </div>
 
       <div>
-      <label>B</label>
-      <select name="B" id="B" onChange={(e) => setB(e.target.value)}>
-                                <option>---Select---</option>
-                                <option>A</option>
-                                <option>B</option>
-                                <option>C</option>
-                                <option>D</option>
-                                </select>
+      <label>District</label>
+      <input
+          type="text"
+          id="District"
+          placeholder="Enter district"
+          required
+          onChange={(e) => setDistrict(e.target.value)}
+        ></input>
+      
       </div>
 
       <div>
-      <label>C</label>
-      <select name="C" id="C" onChange={(e) => setC(e.target.value)}>
-                                <option>---Select---</option>
-                                <option>A</option>
-                                <option>B</option>
-                                <option>C</option>
-                                <option>D</option>
-                                </select>
+      <label>Taluka</label>
+      <input
+          type="text"
+          id="Taluka"
+          placeholder="Enter taluka"
+          required
+          onChange={(e) => setTaluka(e.target.value)}
+        ></input>
       </div>
 
  

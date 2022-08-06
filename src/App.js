@@ -15,6 +15,9 @@ import ProductScreen from './screens/ProductScreen';
 import ProductGroupScreen from './screens/ProductGroupScreen';
 import EnquiryScreen from './screens/EnquiryScreen';
 import OrderScreen from './screens/OrderScreen';
+import StateScreen from './screens/StateScreen';
+import DistrictScreen from './screens/DistrictScreen';
+import TalukaScreen from './screens/TalukaScreen';
 
 function App() {
  
@@ -40,6 +43,9 @@ function App() {
                 <Route path="/serviceGroup" component={ServiceGroupScren}></Route>
                 <Route path="/productGroup" component={ProductGroupScreen}></Route>
                 <Route path="/product" component={ProductScreen}></Route>
+                <Route path="/state" component={StateScreen}></Route>
+                <Route path="/district" component={DistrictScreen}></Route>
+                <Route path="/taluka" component={TalukaScreen}></Route>
                 <ul>
                   <li>
                   <Link to="#signout" onClick={signoutHandler}>

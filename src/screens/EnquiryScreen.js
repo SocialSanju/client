@@ -9,12 +9,31 @@ import { Link } from 'react-router-dom';
 export default function OrderScreen(props) {
   const [name, setName] = useState('');
   const [acName, setAcName] = useState([]);
+  const [enqId, setEnqID] = useState([]);
+  const [selectedName, setSelectedName] = useState([]);
+  const [getID, setID] = useState([]);
 
   useEffect(async () => {
     await axios.get('http://127.0.0.1:8080/api/account/all').then((res) => {
-        setAcName(res.data);
+        setEnqID(res.data);
     })
 }, [])
+
+
+
+const na = [...new Set(enqId.map(item => item.AccountID))];
+na.sort();
+
+
+const handleID = (e) => {
+  const getName = enqId.filter(Name => Name.AccountID === e.target.value);
+  getName.sort();
+  console.log(getName);
+  setAcName(getName);
+
+}
+
+
 
 
 
@@ -30,7 +49,7 @@ export default function OrderScreen(props) {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(addEnquiry(name));
+    dispatch(addEnquiry(enqId, name));
   };
   useEffect(() => {
     if (enquiryAdd) {
@@ -47,15 +66,21 @@ export default function OrderScreen(props) {
       {loading && <LoadingBox></LoadingBox>}
       {error && <MessageBox variant="danger">{error}</MessageBox>}
       <div>
+        <label htmlFor="enqid">Enquiry ID</label>
+        <select name="EnqID" id="EnqID" onChange={(e) => handleID(e)}>
+             {na.map((obj) => <option key={obj} value={getID}>{obj}</option>)}
+         </select>
+      </div>
+      <div>
         <label htmlFor="name">Name</label>
         <select name="Name" id="Name" onChange={(e) => setName(e.target.value)}>
-                                    {acName && acName.map((obj) => {
-                                        return <option value={obj.Name}>{obj.Name}</option>
+                                    {acName.map((obj) => {
+                                        return <option value={selectedName}>{obj}</option>
                                     })
                                     }
                                 </select>
       </div>
-     
+  
     <Link to='account'> <h1 style={{textAlign : 'right'}}> Add New</h1> </Link>
       <div>
         <label />

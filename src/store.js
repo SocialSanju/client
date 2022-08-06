@@ -7,6 +7,9 @@ import { addServiceReducer, serviceGrouplistReducer, serviceGroupReducer } from 
 import { addProductReducer, productGrouplistReducer, productGroupReducer } from './reducers/productReducers';
 import { addEnquiryReducer, enquiryDetailsReducer, enquirylistReducer } from './reducers/enquiryReducers';
 import { addOrderReducer } from './reducers/orderReducers';
+import { stateDetailsReducer, statelistReducer, addStateReducer } from './reducers/stateReducers';
+import { districtDetailsReducer, districtlistReducer, addDistrictReducer } from './reducers/districtReducers';
+import { talukaDetailsReducer, talukalistReducer, addTalukaReducer } from './reducers/talukaReducers';
 
 
 const initialState = {
@@ -37,7 +40,17 @@ const reducer = combineReducers({
     addDetails: addEnquiryReducer,
     postEnq: enquiryDetailsReducer,
     accountDetails: accountDetailsReducer,
-    postOrder: addOrderReducer
+    postOrder: addOrderReducer,
+    stateA: addStateReducer,
+    addS: statelistReducer,
+    stateDetails: stateDetailsReducer,
+    districtA: addDistrictReducer,
+    addD: districtlistReducer,
+    districtDetails: districtDetailsReducer,
+    talukaA: addTalukaReducer,
+    addT: talukalistReducer,
+    talukaDetails: talukaDetailsReducer
+
 });
 const composeEnhancer = window._REDUX_DEVTOOLS_EXTENSION_COMPOSE_ || compose;
 const store = createStore(

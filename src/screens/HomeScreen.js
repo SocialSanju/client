@@ -21,6 +21,9 @@ export default function HomeScreen(props) {
       <Link to='/productGroup'><h2 style={{ fontSize:'20px'}}>Product Group</h2></Link>
       <Link to='/services'><h2 style={{ fontSize:'20px'}}>Services</h2></Link>
       <Link to='/serviceGroup'><h2 style={{ fontSize:'20px'}}>Service Group</h2></Link>
+      <Link to='/state'><h2 style={{ fontSize:'20px'}}>State</h2></Link>
+      <Link to='/district'><h2 style={{ fontSize:'20px'}}>District</h2></Link>
+      <Link to='/taluka'><h2 style={{ fontSize:'20px'}}>Taluka</h2></Link>
    
     <div className='table'>
       <table responsive>
