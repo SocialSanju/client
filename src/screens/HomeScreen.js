@@ -6,7 +6,7 @@ export default function HomeScreen(props) {
   const [name, setName] = useState([]);
 
   useEffect(async () => {
-    await axios.get('http://127.0.0.1:8080/api/enquiry/all').then((res) => {
+    await axios.get('http://13.233.98.188:8080/api/enquiry/all').then((res) => {
         setName(res.data);
     })
 }, [])
