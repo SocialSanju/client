@@ -9,7 +9,7 @@ import {
   dispatch({ type: TALUKA_LIST_REQUEST });
   try {
     const { data } = await Axios.get(
-      `/api/taluka/all`
+      `http://54.242.166.223:8080/api/taluka/all`
     );
     dispatch({ type: TALUKA_LIST_SUCCESS, payload: data });
   } catch (error) {
@@ -20,7 +20,7 @@ import {
 export const addTaluka = (Name, SID, DID) => async (dispatch) => {
   dispatch({ type: ADD_TALUKA_REQUEST, payload: { Name, SID, DID } });
   try {
-    const { data } = await Axios.post('/api/taluka/add', { Name, SID, DID });
+    const { data } = await Axios.post('http://54.242.166.223:8080/api/taluka/add', { Name, SID, DID });
     dispatch({ type: ADD_TALUKA_SUCCESS, payload: data });
     localStorage.setItem('stateAdd', JSON.stringify(data));
   } catch (error) {
@@ -39,7 +39,7 @@ export const detailsTaluka = (talukaId) => async (dispatch) =>{
   dispatch({
       type: TALUKA_DETAILS_REQUEST, payload: talukaId });
   try {
-      const { data } = await Axios.get(`/api/taluka/${talukaId}`);
+      const { data } = await Axios.get(`http://54.242.166.223:8080/api/taluka/${talukaId}`);
       dispatch({ type: TALUKA_DETAILS_SUCCESS, payload: data });
   } catch (error) {
       dispatch({ 
