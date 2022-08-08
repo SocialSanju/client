@@ -15,11 +15,9 @@ export default function OrderScreen(props) {
   const [remark, setRemark] = useState('');
   const [state, setState] = useState('');
   const [district, setDistrict] = useState('');
-  const [taluka, setTaluka] = useState('');
-  
-
-
+  const [taluka, setTaluka] = useState(''); 
   const [pname, setPName] = useState([]);
+  const [sname, setSName] = useState([]);
 
   useEffect(async () => {
     await axios.get('http://127.0.0.1:8080/api/product/all').then((res) => {
@@ -29,7 +27,7 @@ export default function OrderScreen(props) {
 
 useEffect(async () => {
   await axios.get('http://127.0.0.1:8080/api/state/all').then((res) => {
-      setPName(res.data);
+      setSName(res.data);
   })
 }, [])
 
@@ -103,7 +101,7 @@ useEffect(async () => {
       <label>State</label>
       <select name="State" id="State" onChange={(e) => setState(e.target.value)}>
                                 <option>---Select---</option>
-                                    {pname && pname.map((obj) => {
+                                    {sname && sname.map((obj) => {
                                         return <option value={obj.Name}>{obj.Name}</option>
                                     })
                                     }
