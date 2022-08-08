@@ -14,13 +14,13 @@ export default function TalukaScreen(props) {
   const [district, setDistrict] = useState([]);
 
   useEffect(async () => {
-    await axios.get('http://13.233.98.188:8080/api/state/all').then((res) => {
+    await axios.get('http://54.242.166.223:8080/api/state/all').then((res) => {
         setState(res.data);
     })
 }, [])
 
 useEffect(async () => {
-  await axios.get('http://13.233.98.188:8080/api/district/all').then((res) => {
+  await axios.get('http://54.242.166.223:8080/api/district/all').then((res) => {
       setDistrict(res.data);
   })
 }, [])
