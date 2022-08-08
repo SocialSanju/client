@@ -9,7 +9,7 @@ import {
   dispatch({ type: SERVICE_GROUP_LIST_REQUEST });
   try {
     const { data } = await Axios.get(
-      `/api/serviceGroup/list`
+      `http://54.242.166.223:8080/api/serviceGroup/list`
     );
     dispatch({ type: SERVICE_GROUP_LIST_SUCCESS, payload: data });
   } catch (error) {
@@ -21,7 +21,7 @@ import {
 export const servieGroupAdd = (service_group_title, Sub_Group) => async (dispatch) => {
   dispatch({ type: SERVICE_GROUP_REQUEST, payload: { service_group_title, Sub_Group } });
   try {
-    const { data } = await Axios.post('/api/serviceGroup/', { service_group_title, Sub_Group });
+    const { data } = await Axios.post('http://54.242.166.223:8080/api/serviceGroup/', { service_group_title, Sub_Group });
     dispatch({ type: SERVICE_GROUP_SUCCESS, payload: data });
     localStorage.setItem('service_groupInfo', JSON.stringify(data));
   } catch (error) {
@@ -39,7 +39,7 @@ export const servieGroupAdd = (service_group_title, Sub_Group) => async (dispatc
 export const addService = (Title, Sort_Order, Status, Service_Group) => async (dispatch) => {
   dispatch({ type: ADD_SERVICE_REQUEST, payload: { Title, Sort_Order, Status, Service_Group } });
   try {
-    const { data } = await Axios.post('/api/services/add', { Title, Sort_Order, Status, Service_Group });
+    const { data } = await Axios.post('http://54.242.166.223:8080/api/services/add', { Title, Sort_Order, Status, Service_Group });
     dispatch({ type: ADD_SERVICE_SUCCESS, payload: data });
     localStorage.setItem('serviceAdd', JSON.stringify(data));
   } catch (error) {
