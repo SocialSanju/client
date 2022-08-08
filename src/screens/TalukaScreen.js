@@ -51,7 +51,7 @@ useEffect(async () => {
     <div>
     <form className="form" onSubmit={submitHandler}>
       <div>
-        <h1>Add Account</h1>
+        <h1>Add Taluka</h1>
       </div>
       {loading && <LoadingBox></LoadingBox>}
       {error && <MessageBox variant="danger">{error}</MessageBox>}
