@@ -11,7 +11,7 @@ export default function ServiceScreen(props) {
   const [serviceGroup, setServiceGroup] = useState([]);
 
   useEffect(async () => {
-    await axios.get('http://13.233.98.188:8080/api/serviceGroup/list').then((res) => {
+    await axios.get('http://54.242.166.223:8080/api/serviceGroup/list').then((res) => {
         setServiceGroup(res.data);
     })
 }, [])
