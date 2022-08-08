@@ -20,13 +20,13 @@ export default function OrderScreen(props) {
   const [sname, setSName] = useState([]);
 
   useEffect(async () => {
-    await axios.get('http://127.0.0.1:8080/api/product/all').then((res) => {
+    await axios.get('http://13.233.98.188:8080/api/product/all').then((res) => {
         setPName(res.data);
     })
 }, [])
 
 useEffect(async () => {
-  await axios.get('http://127.0.0.1:8080/api/state/all').then((res) => {
+  await axios.get('http://13.233.98.188:8080/api/state/all').then((res) => {
       setSName(res.data);
   })
 }, [])

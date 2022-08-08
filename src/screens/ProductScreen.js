@@ -11,7 +11,7 @@ export default function ProductScreen(props) {
   const [productGroup, setProductGroup] = useState([]);
 
   useEffect(async () => {
-    await axios.get('http://127.0.0.1:8080/api/productGroup/list').then((res) => {
+    await axios.get('http://13.233.98.188:8080/api/productGroup/list').then((res) => {
         setProductGroup(res.data);
     })
 }, [])
