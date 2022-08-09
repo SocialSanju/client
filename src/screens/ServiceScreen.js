@@ -39,8 +39,7 @@ export default function ServiceScreen(props) {
         <div>
           <h1>Add Service</h1>
         </div>
-        {loading && <LoadingBox></LoadingBox>}
-        {error && <MessageBox variant="danger">{error}</MessageBox>}
+        
         <div>
           <label htmlFor="title">Title</label>
           <input
