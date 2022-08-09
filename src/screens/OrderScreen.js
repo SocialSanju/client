@@ -47,19 +47,19 @@ useEffect(async () => {
   const {
     loading: loadingUpdate,
     error: errorUpdate,
-    order: orderAdd,
+    order: Add,
   } = postOrder;
 
 
     const dispatch = useDispatch();
   useEffect(() => {
-    if (!enquiry || enquiry._id !== enqId || orderAdd) {
+    if (!enquiry || enquiry._id !== enqId || Add) {
       dispatch({ type: ENQUIRY_DETAILS_RESET });
       dispatch(EnquiryDetails(enqId));
     } else {
   
     }
-  }, [dispatch, orderAdd, enquiry, enqId,]);
+  }, [dispatch, Add, enquiry, enqId,]);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -68,10 +68,10 @@ useEffect(async () => {
   };
 
   useEffect(() => {
-    if (orderAdd) {
+    if (Add) {
       props.history.push('/');
     }
-  }, [props.history, orderAdd]);
+  }, [props.history, Add]);
   
   return loading ? (
     <LoadingBox></LoadingBox>
