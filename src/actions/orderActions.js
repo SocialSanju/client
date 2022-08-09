@@ -4,7 +4,7 @@ import { ADD_ORDER_FAIL, ADD_ORDER_REQUEST, ADD_ORDER_SUCCESS} from "../constant
 export const addOrder = (Name, Product, BillingAmt, PaidAmt, Remark, State, District, Taluka) => async (dispatch) => {
   dispatch({ type: ADD_ORDER_REQUEST, payload: { Name,Product, BillingAmt, PaidAmt, Remark, State, District, Taluka } });
   try {
-    const { data } = await Axios.post('/api/order/add', { Name, Product, BillingAmt, PaidAmt, Remark, State, District, Taluka });
+    const { data } = await Axios.post('http://54.242.166.223:8080/api/order/add', { Name, Product, BillingAmt, PaidAmt, Remark, State, District, Taluka });
     dispatch({ type: ADD_ORDER_SUCCESS, payload: data });
     localStorage.setItem('Add', JSON.stringify(data));
   } catch (error) {

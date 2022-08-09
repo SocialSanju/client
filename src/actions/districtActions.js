@@ -9,7 +9,7 @@ import {
   dispatch({ type: DISTRICT_LIST_REQUEST });
   try {
     const { data } = await Axios.get(
-      `/api/district/all`
+      `http://54.242.166.223:8080/api/district/all`
     );
     dispatch({ type: DISTRICT_LIST_SUCCESS, payload: data });
   } catch (error) {
@@ -20,7 +20,7 @@ import {
 export const addDistrict = (Name,  SID) => async (dispatch) => {
   dispatch({ type: ADD_DISTRICT_REQUEST, payload: { Name, SID } });
   try {
-    const { data } = await Axios.post('/api/district/add', { Name, SID });
+    const { data } = await Axios.post('http://54.242.166.223:8080/api/district/add', { Name, SID });
     dispatch({ type: ADD_DISTRICT_SUCCESS, payload: data });
     localStorage.setItem('districtAdd', JSON.stringify(data));
   } catch (error) {
@@ -39,7 +39,7 @@ export const detailsDistrict = (districtId) => async (dispatch) =>{
   dispatch({
       type: DISTRICT_DETAILS_REQUEST, payload: districtId });
   try {
-      const { data } = await Axios.get(`/api/district/${districtId}`);
+      const { data } = await Axios.get(`http://54.242.166.223:8080/api/district/${districtId}`);
       dispatch({ type: DISTRICT_DETAILS_SUCCESS, payload: data });
   } catch (error) {
       dispatch({ 

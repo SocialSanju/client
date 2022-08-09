@@ -9,7 +9,7 @@ import {
   dispatch({ type: STATE_LIST_REQUEST });
   try {
     const { data } = await Axios.get(
-      `/api/state/all`
+      `http://54.242.166.223:8080/api/state/all`
     );
     dispatch({ type: STATE_LIST_SUCCESS, payload: data });
   } catch (error) {
@@ -20,7 +20,7 @@ import {
 export const addState = (Name) => async (dispatch) => {
   dispatch({ type: ADD_STATE_REQUEST, payload: { Name } });
   try {
-    const { data } = await Axios.post('/api/state/add', { Name });
+    const { data } = await Axios.post('http://54.242.166.223:8080/api/state/add', { Name });
     dispatch({ type: ADD_STATE_SUCCESS, payload: data });
     localStorage.setItem('stateAdd', JSON.stringify(data));
   } catch (error) {
@@ -39,7 +39,7 @@ export const detailsState = (stateId) => async (dispatch) =>{
   dispatch({
       type: STATE_DETAILS_REQUEST, payload: stateId });
   try {
-      const { data } = await Axios.get(`/api/state/${stateId}`);
+      const { data } = await Axios.get(`http://54.242.166.223:8080/api/state/${stateId}`);
       dispatch({ type: STATE_DETAILS_SUCCESS, payload: data });
   } catch (error) {
       dispatch({ 

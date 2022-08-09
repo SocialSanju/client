@@ -12,7 +12,7 @@ export default function AccountScreen(props) {
   const [acGroup, setAcGroup] = useState([]);
 
   useEffect(async () => {
-    await axios.get('http://13.233.98.188:8080/api/accountGroup/list').then((res) => {
+    await axios.get('http://54.242.166.223:8080/api/accountGroup/list').then((res) => {
         setAcGroup(res.data);
     })
 }, [])

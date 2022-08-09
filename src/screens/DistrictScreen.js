@@ -12,7 +12,7 @@ export default function DistrictScreen(props) {
   const [state, setState] = useState([]);
 
   useEffect(async () => {
-    await axios.get('http://13.233.98.188:8080/api/state/all').then((res) => {
+    await axios.get('http://54.242.166.223:8080/api/state/all').then((res) => {
         setState(res.data);
     })
 }, [])

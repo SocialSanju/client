@@ -9,7 +9,7 @@ import {
   dispatch({ type: PRODUCT_GROUP_LIST_REQUEST });
   try {
     const { data } = await Axios.get(
-      `/api/productGroup/list`
+      `http://54.242.166.223:8080/api/productGroup/list`
     );
     dispatch({ type: PRODUCT_GROUP_LIST_SUCCESS, payload: data });
   } catch (error) {
@@ -21,7 +21,7 @@ import {
 export const productDetails = (product_group_title, Sub_Group) => async (dispatch) => {
   dispatch({ type: PRODUCT_GROUP_REQUEST, payload: { product_group_title, Sub_Group } });
   try {
-    const { data } = await Axios.post('/api/productGroup/', { product_group_title, Sub_Group });
+    const { data } = await Axios.post('http://54.242.166.223:8080/api/productGroup/', { product_group_title, Sub_Group });
     dispatch({ type: PRODUCT_GROUP_SUCCESS, payload: data });
     localStorage.setItem('productGroupInfo', JSON.stringify(data));
   } catch (error) {
@@ -38,7 +38,7 @@ export const productDetails = (product_group_title, Sub_Group) => async (dispatc
 export const addProduct = (Name, ProductGroup) => async (dispatch) => {
   dispatch({ type: ADD_PRODUCT_REQUEST, payload: { Name, ProductGroup } });
   try {
-    const { data } = await Axios.post('/api/product/add', { Name, ProductGroup });
+    const { data } = await Axios.post('http://54.242.166.223:8080/api/product/add', { Name, ProductGroup });
     dispatch({ type: ADD_PRODUCT_SUCCESS, payload: data });
     localStorage.setItem('productAdd', JSON.stringify(data));
   } catch (error) {
