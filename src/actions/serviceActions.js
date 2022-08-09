@@ -36,10 +36,10 @@ export const servieGroupAdd = (service_group_title, Sub_Group) => async (dispatc
 };
 
 
-export const addService = (Title, Sort_Order, Status, Service_Group) => async (dispatch) => {
-  dispatch({ type: ADD_SERVICE_REQUEST, payload: { Title, Sort_Order, Status, Service_Group } });
+export const addService = (Title, Service_Group) => async (dispatch) => {
+  dispatch({ type: ADD_SERVICE_REQUEST, payload: { Title, Service_Group } });
   try {
-    const { data } = await Axios.post('http://54.242.166.223:8080/api/services/add', { Title, Sort_Order, Status, Service_Group });
+    const { data } = await Axios.post('http://54.242.166.223:8080/api/services/add', { Title, Service_Group });
     dispatch({ type: ADD_SERVICE_SUCCESS, payload: data });
     localStorage.setItem('serviceAdd', JSON.stringify(data));
   } catch (error) {
